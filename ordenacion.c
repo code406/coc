@@ -24,33 +24,28 @@ int SelectSort(int* tabla, int ip, int iu)
 
 	if(tabla==NULL) return ERR;
 
-	/* DEBUG PRINT TABLA */
-	for(i=ip; i<iu; i++){
-		printf("%d ", tabla[i]);
-	}
-
-	printf("\n");
 	for(i=ip; i<iu; i++){
 		min = minimo(tabla, i, iu);
-		printf("%d ",tabla[min] );
 		aux = tabla[i];
 		tabla[i] = tabla[min];
 		tabla[min] = aux;
 	}
-	printf("\n");
 
 	return(i-ip);
 }
 
 int minimo(int *tabla, int ip, int iu)
 {
-	int min = tabla[ip], j;
+	int min = ip, j;
 
-	for(j=ip; j<iu; j++){
+	for(j=ip; j<=iu; j++){
 		printf("Mirando en %d (como max %d)\n", j, iu);
-		if(tabla[j]<tabla[min])
+		if(tabla[j]<tabla[min]) {
 			printf("\tParece que %d es menor que %d\n", tabla[j], tabla[min]);
 			min = j;
+		} else {
+			printf("\tParece que %d no es menor que %d\n", tabla[j], tabla[min]);
+		}
 	}
 	printf("[%d][%d] ENCONTRADO MINIMO en %d -> %d\n", ip, iu, min, tabla[min]);
 
