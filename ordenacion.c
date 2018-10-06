@@ -22,8 +22,6 @@ int SelectSort(int* tabla, int ip, int iu)
 {
 	int i, min, aux;
 
-	if(tabla==NULL) return ERR;
-
 	for(i=ip; i<iu; i++){
 		min = minimo(tabla, i, iu);
 		aux = tabla[i];
@@ -38,21 +36,25 @@ int minimo(int *tabla, int ip, int iu)
 {
 	int min = ip, j;
 
-	for(j=ip; j<=iu; j++){
-		printf("Mirando en %d (como max %d)\n", j, iu);
-		if(tabla[j]<tabla[min]) {
-			printf("\tParece que %d es menor que %d\n", tabla[j], tabla[min]);
+	for(j=ip; j<=iu; j++) {
+		if(tabla[j]<tabla[min])
 			min = j;
-		} else {
-			printf("\tParece que %d no es menor que %d\n", tabla[j], tabla[min]);
-		}
 	}
-	printf("[%d][%d] ENCONTRADO MINIMO en %d -> %d\n", ip, iu, min, tabla[min]);
 
 	return min;
 }
 
 int SelectSortInv(int* tabla, int ip, int iu)
 {
-  /* vuestro codigo */
+	int i, min, aux;
+
+	for (i=iu; i>ip; i--) {
+		min = minimo(tabla, ip, i);
+		printf("minimo >> %d\n", min);
+		aux = tabla[i];
+		tabla[i] = tabla[min];
+		tabla[min] = aux;
+	}
+
+	return(0);
 }
