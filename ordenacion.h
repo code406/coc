@@ -26,7 +26,7 @@ typedef int (* pfunc_ordena)(int*, int, int);
 
 int SelectSort(int* tabla, int ip, int iu);
 int SelectSortInv(int* tabla, int ip, int iu);
-int minimo(int *tabla, int ip, int iu);
+int minimo(int *tabla, int ip, int iu, int* num_ob);
 
 
 #endif

@@ -1,0 +1,8 @@
+Con 7 permutaciones de 5 elementos --> Tiempo medio: 4146.000000, Minimo de OB: 5, Maximo de OB: 5, Media de OB: 7.000000.
+Con 7 permutaciones de 7 elementos --> Tiempo medio: 2644.000000, Minimo de OB: 7, Maximo de OB: 7, Media de OB: 7.000000.
+Con 7 permutaciones de 9 elementos --> Tiempo medio: 2827.000000, Minimo de OB: 9, Maximo de OB: 9, Media de OB: 7.000000.
+Con 7 permutaciones de 11 elementos --> Tiempo medio: 3232.000000, Minimo de OB: 11, Maximo de OB: 11, Media de OB: 7.000000.
+Con 7 permutaciones de 13 elementos --> Tiempo medio: 4018.000000, Minimo de OB: 13, Maximo de OB: 13, Media de OB: 7.000000.
+Con 7 permutaciones de 15 elementos --> Tiempo medio: 4132.000000, Minimo de OB: 15, Maximo de OB: 15, Media de OB: 7.000000.
+Con 7 permutaciones de 17 elementos --> Tiempo medio: 4803.000000, Minimo de OB: 17, Maximo de OB: 17, Media de OB: 7.000000.
+Con 7 permutaciones de 19 elementos --> Tiempo medio: 5242.000000, Minimo de OB: 19, Maximo de OB: 19, Media de OB: 7.000000.

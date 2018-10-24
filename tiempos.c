@@ -39,9 +39,10 @@ short tiempo_medio_ordenacion(pfunc_ordena metodo,
 
         clk_id = CLOCK_MONOTONIC;
         clock_gettime(clk_id, &tp1);
+
         /* realiza la ordenacion y obtiene num. total de OB */
         for (i=0; i<n_perms; i++){
-                n = metodo(table[i], 0, N);
+                n = metodo(table[i], 0, N-1);
                 if(n>max) max=n;
                 if (min==-1) min=n;
                 else if(n<min) min=n;
@@ -50,10 +51,16 @@ short tiempo_medio_ordenacion(pfunc_ordena metodo,
         clock_gettime(clk_id, &tp2);
 
         ptiempo->tiempo = (tp2.tv_nsec - tp1.tv_nsec)/n_perms;
-        ptiempo->n_elems= n_perms * N;
+        ptiempo->n_elems= n_perms;
         ptiempo->medio_ob = tot/(ptiempo->n_elems);
         ptiempo->min_ob = min;
         ptiempo->max_ob = max;
+        ptiempo->N = N;
+
+	for (i=0; i<n_perms; i++)
+		free(table[i]);
+
+	free(table);
 
         return 0;
 }
@@ -77,7 +84,7 @@ short genera_tiempos_ordenacion(pfunc_ordena metodo, char* fichero,
 	ptiempo = (PTIEMPO) calloc(1, sizeof(TIEMPO));
 	if(!ptiempo) return -1;
 
-	f = fopen ("file.txt", "w");
+	f = fopen("file.txt", "w");
 	if(!f) return -1;
 
 	for(N=num_min; N<=num_max; N+=incr){
