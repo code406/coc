@@ -1,6 +1,6 @@
 /**************************************************/
 /* Programa: ejercicio3       Fecha:              */
-/* Autores:                                       */
+/* Autores: David Palomo, Antonio Solana          */
 /*                                                */
 /* Programa que genera permutaciones N            */
 /* aleatorias de M elementos                      */
@@ -35,8 +35,8 @@ int main(int argc, char** argv)
   }
 
   printf("Practica numero 1, apartado 3\n");
-  printf("Realizada por: Vuestros nombres\n");
-  printf("Grupo: Vuestro grupo\n");
+  printf("Realizada por: David Palomo, Antonio Solana\n");
+  printf("Grupo: 1213\n");
 
   /* comprueba la linea de comandos */
   for(i = 1; i < argc; i++) {
@@ -68,4 +68,3 @@ int main(int argc, char** argv)
 
   return 0;
 }
-

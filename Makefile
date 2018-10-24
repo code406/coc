@@ -5,7 +5,7 @@
 
 CC = gcc -Wall -g -ansi -pedantic
 CFLAGS = -Wall
-EXE = ejercicio1 ejercicio2 ejercicio3 ejercicio4 ejercicio5
+EXE = ejercicio1 ejercicio2 ejercicio3 ejercicio4 ejercicio5 ejercicio6
 
 all : $(EXE)
 
@@ -40,7 +40,7 @@ permutaciones.o : permutaciones.c permutaciones.h
 	@echo "# Depende de $^"
 	@echo "# Ha cambiado $<"
 	$(CC) $(CFLAGS) -c $<
-	
+
 ejercicio1_test:
 	@echo Ejecutando ejercicio1
 	@./ejercicio1 -limInf 1 -limSup 5 -numN 10
@@ -61,3 +61,15 @@ ejercicio5_test:
 	@echo Ejecutando ejercicio5
 	@./ejercicio5 -num_min 1 -num_max 5 -incr 1 -numP 5 -fichSalida ejercicio5.log
 
+ejercicio6_test:
+	@echo Ejecutando ejercicio6
+	@./ejercicio6 -num_min 1 -num_max 5 -incr 1 -numP 5 -fichSalida ejercicio6.log
+
+runv:
+	@echo ">>>>> Running valgrind"
+	valgrind --leak-check=full ./ejercicio1 -limInf 1 -limSup 5 -numN 10
+	valgrind --leak-check=full ./ejercicio2 -tamanio 1 -numP 5
+	valgrind --leak-check=full ./ejercicio3 -tamanio 1 -numP 5
+	valgrind --leak-check=full ./ejercicio4 -tamanio 1
+	valgrind --leak-check=full ./ejercicio5 -num_min 1 -num_max 5 -incr 1 -numP 5 -fichSalida file.txt
+	valgrind --leak-check=full ./ejercicio6 -num_min 1 -num_max 5 -incr 1 -numP 5 -fichSalida file.txt

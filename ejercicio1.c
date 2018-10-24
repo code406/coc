@@ -1,6 +1,6 @@
 /***********************************************/
 /* Programa: ejercicio1     Fecha:             */
-/* Autores:                                    */
+/* Autores: David Palomo, Antonio Solana       */
 /*                                             */
 /* Programa que genera numeros aleatorios      */
 /* entre dos numeros dados                     */
@@ -35,8 +35,8 @@ int main(int argc, char** argv)
     exit(-1);
   }
   printf("Practica numero 1, apartado 1\n");
-  printf("Realizada por: Vuestros nombres\n");
-  printf("Grupo: Vuestro grupo\n");
+  printf("Realizada por: David Palomo, Antonio Solana\n");
+  printf("Grupo: 1213\n");
 
   /* comprueba la linea de comandos */
   for(i = 1; i < argc; i++) {

@@ -16,7 +16,7 @@
 
 /***************************************************/
 /* Funcion: aleat_num Fecha:                       */
-/* Autores:                                        */
+/* Autores: David Palomo, Antonio Solana           */
 /*                                                 */
 /* Rutina que genera un numero aleatorio           */
 /* entre dos numeros dados                         */
@@ -29,12 +29,13 @@
 /***************************************************/
 int aleat_num(int inf, int sup)
 {
+	if(inf>sup) return ERR;
 	return ((rand() % (sup - inf)) + inf);
 }
 
 /***************************************************/
 /* Funcion: genera_perm Fecha:                     */
-/* Autores:                                        */
+/* Autores: David Palomo, Antonio Solana           */
 /*                                                 */
 /* Rutina que genera una permutacion               */
 /* aleatoria                                       */
@@ -51,6 +52,8 @@ int* genera_perm(int N)
 {
 	int* perm = NULL;
 	int i, rnd, aux;
+
+	if(N<1) return NULL;
 
 	perm = (int*) calloc(N, sizeof(int));
 	if(perm == NULL) return NULL;
@@ -71,7 +74,7 @@ int* genera_perm(int N)
 
 /***************************************************/
 /* Funcion: genera_permutaciones Fecha:            */
-/* Autores:                                        */
+/* Autores: David Palomo, Antonio Solana           */
 /*                                                 */
 /* Funcion que genera n_perms permutaciones        */
 /* aleatorias de tamanio elementos                 */
@@ -91,9 +94,12 @@ int** genera_permutaciones(int n_perms, int N)
 	int i;
 	int** s_perms = NULL;
 	s_perms = (int**) calloc(n_perms, sizeof(int*));
+	if(s_perms == NULL) return NULL;
 
-	for(i=0; i<n_perms; i++)
+	for(i=0; i<n_perms; i++){
 		s_perms[i] = genera_perm(N);
+		if(s_perms[i] == NULL) return NULL;
+	}
 
 	return s_perms;
 }

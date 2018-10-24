@@ -1,6 +1,6 @@
 /**************************************************/
 /* Programa: ejercicio4       Fecha:              */
-/* Autores:                                       */
+/* Autores: David Palomo, Antonio Solana          */
 /*                                                */
 /* Programa que Comprueba SelectSort              */
 /*                                                */
@@ -30,8 +30,8 @@ int main(int argc, char** argv)
     return 0;
   }
   printf("Practica numero 1, apartado 4\n");
-  printf("Realizada por: Vuestros nombres\n");
-  printf("Grupo: Vuestro grupo\n");
+  printf("Realizada por: David Palomo, Antonio Solana\n");
+  printf("Grupo: 1213\n");
 
   /* comprueba la linea de comandos */
   for(i = 1; i < argc; i++) {
