@@ -1,0 +1,3 @@
+- Preguntas 5 y 6 del apartado de preguntas teoricas.
+- Apartados 2, 3 y 4 (los que no tenian graficas) del apartado de resultados y graficas
+- Pegar el codigo fuente en la memoria. Apartado de Codigo Fuente.

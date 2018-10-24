@@ -1,0 +1,5 @@
+Con 1 elementos --> Tiempo medio: 547413.000000, Minimo de OB: 0, Maximo de OB: 0, Media de OB: 0.000000.
+Con 2 elementos --> Tiempo medio: 486133.000000, Minimo de OB: 2, Maximo de OB: 2, Media de OB: 2.000000.
+Con 3 elementos --> Tiempo medio: 7522.000000, Minimo de OB: 5, Maximo de OB: 5, Media de OB: 5.000000.
+Con 4 elementos --> Tiempo medio: 8152.000000, Minimo de OB: 9, Maximo de OB: 9, Media de OB: 9.000000.
+Con 5 elementos --> Tiempo medio: 10670.000000, Minimo de OB: 14, Maximo de OB: 14, Media de OB: 14.000000.

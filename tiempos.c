@@ -125,8 +125,12 @@ short guarda_tabla_tiempos(char* fichero, PTIEMPO tiempo, int n_tiempos)
 		return ERR;
 	}
 
-	fprintf(f, "Con %d elementos --> Tiempo medio: %f, Minimo de OB: %d, Maximo de OB: %d, Media de OB: %f.\n",
-		n_tiempos, tiempo->tiempo, tiempo->min_ob, tiempo->max_ob, tiempo->medio_ob);
+	fprintf(f, "%d %f %d %d %f.\n",
+		n_tiempos, 
+		tiempo->tiempo, 
+		tiempo->min_ob, 
+		tiempo->max_ob, 
+		tiempo->medio_ob);
 
 	fclose(f);
   	return 0;
