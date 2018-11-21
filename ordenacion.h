@@ -28,6 +28,8 @@ int SelectSortInv(int* tabla, int ip, int iu);
 int minimo(int *tabla, int ip, int iu, int* num_ob);
 int MergeSort(int* tabla, int ip, int iu);
 int Merge(int *tabla, int ip, int iu, int imedio);
-
+int QuickSort(int *tabla, int ip, int iu);
+int partir(int *tabla, int ip, int iu, int *pos);
+int medio(int *tabla, int ip, int iu, int *pos);
 
 #endif
