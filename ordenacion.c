@@ -47,6 +47,7 @@ int SelectSort(int *tabla, int ip, int iu)
 		return ERR;
 	for (i = ip; i < iu; i++) {
 		min = minimo(tabla, i, iu, &num_ob);
+		/* swap */
 		aux = tabla[i];
 		tabla[i] = tabla[min];
 		tabla[min] = aux;
@@ -90,6 +91,7 @@ int SelectSortInv(int *tabla, int ip, int iu)
 		return ERR;
 	for (i = iu; i > ip; i--) {
 		min = minimo(tabla, ip, i, &num_ob);
+		/* swap */
 		aux = tabla[i];
 		tabla[i] = tabla[min];
 		tabla[min] = aux;
@@ -137,11 +139,10 @@ int Merge(int *tabla, int ip, int iu, int imedio)
 		return ERR;
 
 	for (num = 0, k = 0, i = ip, j = imedio + 1; i <= imedio && j <= iu;
-	     k++) {
+	     k++, num++) {
 		if (tabla[i] < tabla[j]) {
 			tabla_aux[k] = tabla[i];
 			i++;
-			num++;
 		} else {
 			tabla_aux[k] = tabla[j];
 			j++;
@@ -164,6 +165,12 @@ int Merge(int *tabla, int ip, int iu, int imedio)
 	return num;
 }
 
+/***************************************************/
+/* Funcion: QuickSort                              */
+/* Autores: David Palomo, Antonio Solana           */
+/*                                                 */
+/* Algoritmo de ordenacion QuickSort               */
+/***************************************************/
 int QuickSort(int *tabla, int ip, int iu)
 {
 	int num, pos;
@@ -194,6 +201,12 @@ int QuickSort(int *tabla, int ip, int iu)
 	return num;
 }
 
+/***************************************************/
+/* Funcion: partir                                 */
+/* Autores: David Palomo, Antonio Solana           */
+/*                                                 */
+/* Separa la tabla                                 */
+/***************************************************/
 int partir(int *tabla, int ip, int iu, int *pos)
 {
 	int i, j, k, aux, num = 0;
@@ -201,12 +214,13 @@ int partir(int *tabla, int ip, int iu, int *pos)
 	if (!pos || !tabla)
 		return ERR;
 
-	medio(tabla, ip, iu, pos);
+	/* Elegir aqui medio o medio_avg */
+	if(medio_avg(tabla, ip, iu, pos) == ERR)
+		return ERR;
 
 	k = tabla[*pos];
 	j = *pos;
-
-	/* swAAP */
+	/* swap */
 	aux = tabla[ip];
 	tabla[ip] = tabla[j];
 	tabla[j] = aux;
@@ -216,15 +230,14 @@ int partir(int *tabla, int ip, int iu, int *pos)
 	for (i = ip + 1; i <= iu; i++, num++) {
 		if (tabla[i] < k) {
 			j++;
-
-			/* swAAP */
+			/* swap */
 			aux = tabla[i];
 			tabla[i] = tabla[j];
 			tabla[j] = aux;
 		}
 	}
 
-	/* swAAP */
+	/* swap */
 	aux = tabla[ip];
 	tabla[ip] = tabla[j];
 	tabla[j] = aux;
@@ -233,8 +246,61 @@ int partir(int *tabla, int ip, int iu, int *pos)
 	return num;
 }
 
+/***************************************************/
+/* Funcion: QuickSort_src                          */
+/* Autores: David Palomo, Antonio Solana           */
+/*                                                 */
+/* Algoritmo QuickSort sin recursion de cola       */
+/***************************************************/
+int QuickSort_src(int *tabla, int ip, int iu)
+{
+	int num=0, pos=1, check;
+
+	if(ip>iu || !tabla)
+		return ERR;
+
+	if(ip==iu)
+		return 0;
+	while(ip<iu)
+	{
+		check = partir(tabla, ip, iu, &pos);
+		if(check == ERR)
+			return ERR;
+		else
+			num += check;
+		num += QuickSort_src(tabla, ip, pos-1);
+		ip=pos+1;
+	}
+
+	return num;
+}
+
+/***************************************************/
+/* Funcion: medio                                  */
+/* Autores: David Palomo, Antonio Solana           */
+/*                                                 */
+/* Coloca el pivote en el indice del 1er elemento  */
+/***************************************************/
 int medio(int *tabla, int ip, int iu, int *pos)
 {
+	if(!tabla || ip>=iu || !pos)
+		return ERR;
+		
 	*pos = ip;
+	return 0;
+}
+
+/***************************************************/
+/* Funcion: medio_avg                              */
+/* Autores: David Palomo, Antonio Solana           */
+/*                                                 */
+/* Coloca pivote en la posicion media de ip e iu   */
+/***************************************************/
+int medio_avg(int *tabla, int ip, int iu, int *pos)
+{
+	if(!tabla || ip>=iu || !pos)
+		return ERR;
+	*pos = (ip + iu)/2;
+
 	return 0;
 }
