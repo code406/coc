@@ -69,7 +69,7 @@ int main(int argc, char** argv)
     }
   }
 
-  /* calculamos los tiempos
+  /* calculamos los tiempos  */
   ret = genera_tiempos_busqueda(blin, generador_claves_uniforme, NO_ORDENADO, 
                                 nombre, num_min, num_max, incr, n_veces);
   if (ret == ERR) { 
@@ -77,7 +77,7 @@ int main(int argc, char** argv)
     exit(-1);
   }
 
-  printf("Salida correcta \n");  */
+  printf("Salida correcta \n");
 
   return 0;
 }
